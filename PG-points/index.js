@@ -25,8 +25,8 @@ const config = {
     warning: 0xFEE75C  // Yellow
   },
   emojis: {
-    points: '⭐',
-    gems: '💎'
+    points: '',
+    gems: ''
   },
   economy: {
     dailyReward: 50,
@@ -85,8 +85,8 @@ function getTopUsers(limit = 5) {
 // 3. EMBED UTILITIES
 // ==========================================
 const embeds = {
-  success: (desc) => new EmbedBuilder().setColor(config.colors.success).setDescription(`✅ ${desc}`),
-  error: (desc) => new EmbedBuilder().setColor(config.colors.error).setDescription(`❌ ${desc}`),
+  success: (desc) => new EmbedBuilder().setColor(config.colors.success).setDescription(`${desc}`),
+  error: (desc) => new EmbedBuilder().setColor(config.colors.error).setDescription(`${desc}`),
   info: (title, desc) => new EmbedBuilder().setColor(config.colors.primary).setTitle(title).setDescription(desc || null),
 };
 
@@ -174,7 +174,7 @@ const commandList = [
         description += `**${i + 1}.** <@${topUsers[i].id}> - ${topUsers[i].points} ${config.emojis.points}\n`;
       }
 
-      return interaction.reply({ embeds: [embeds.info('🏆 Points Leaderboard', description)] });
+      return interaction.reply({ embeds: [embeds.info('Points Leaderboard', description)] });
     }
   },
   {
